@@ -17,7 +17,16 @@
         <result property="name" column="category_name"/>
         <result property="refCategoryCode" column="ref_category_code"/>
     </resultMap>
-
+    <update id="updateMenu" parameterType="com.ohgiraffers.crud.menu.model.dto.MenuDTO">
+        UPDATE tbl_menu
+        SET
+        menu_name = #{name},
+        menu_price = #{price},
+        category_code = #{categoryCode},
+        orderable_status = #{orderableStatus}
+        WHERE
+        menu_code = #{code}
+    </update>
 
 
 </mapper>
