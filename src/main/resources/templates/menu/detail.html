@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
+<!-- 삭제 버튼 -->
+<form th:action="@{/menu/delete/{code}(code=${menu.code})}" method="post">
+    <button type="submit">삭제하기</button>
+</form>
 
 <div th:replace="common/header.html"></div>
 <h2>메뉴 상세 정보</h2>

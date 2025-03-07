@@ -1,11 +1,48 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>regist</title>
+    <title>Title</title>
 </head>
 <body>
+<div th:include="common/header.html"></div>
 
+<h3>신규 메뉴 등록</h3>
+<form action="/menu/regist" method="post">
+    <label>메뉴 이름 : </label><input type="text" name="name"><br>
+    <label>메뉴 가격 : </label><input type="number" name="price"><br>
+    <label>카테고리 코드 : </label>
+    <select name="categoryCode" id="categoryCode"></select><br>
+    <label>판매 상태 : </label>
+    <select name="orderableStatus">
+        <option value="Y">Y</option>
+        <option value="N">N</option>
+    </select>
+    <input type="submit" value="전송">
+</form>
 
+<script>
+    fetch("/menu/category")
+        .then(res => res.json())
+        .then(data => {
+            // 주의! 여기서 data는 딱 1번만 사용할 수 있음!!
+            // console.log(data);      // 비동기 요청에 대한 응답 확인용(확인했으면 주석처리하기)
 
+            const $categoryCode = document.getElementById("categoryCode");
+
+            for(let index in data) {
+
+                // 새로운 <option> 엘리먼트 생성
+                const $option = document.createElement("option");
+                // <option> 엘리먼트의 값을 조회해온 카테고리 코드로 설정
+                $option.value = data[index].code;
+                // <option> 엘리먼트의 텍스트 노드를 조회해온 카테고리 코드로 설정
+                $option.textContent = data[index].name;
+
+                // 완성된 <option> 엘리먼트를 select 엘리먼트의 자식으로 추가
+                $categoryCode.appendChild($option);
+            }
+        });
+</script>
 </body>
 </html>
