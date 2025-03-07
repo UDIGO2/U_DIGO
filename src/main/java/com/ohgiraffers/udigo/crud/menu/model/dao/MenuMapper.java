@@ -23,4 +23,3 @@ public interface MenuMapper {
 
     void deleteMenu(int code);
 }
-//

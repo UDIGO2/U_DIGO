@@ -52,6 +52,6 @@ public class MenuController {
 
         return "redirect:/menu/detail/" + menu.getCode();
     }
-//
+
 
 }
