@@ -1,9 +1,5 @@
 package com.ohgiraffers.udigo.crud.menu.model.dao;
 
-feat/select-by
-
-
-main
 import com.ohgiraffers.udigo.crud.menu.model.dto.CategoryDTO;
 import com.ohgiraffers.udigo.crud.menu.model.dto.MenuDTO;
 import org.apache.ibatis.annotations.Mapper;

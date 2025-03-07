@@ -1,22 +1,35 @@
 package com.ohgiraffers.udigo.crud.menu.model.service;
 
 import com.ohgiraffers.udigo.crud.menu.model.dao.MenuMapper;
-feat/select-by
+
 
 import com.ohgiraffers.udigo.crud.menu.model.dto.CategoryDTO;
-main
+
 import com.ohgiraffers.udigo.crud.menu.model.dto.MenuDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import java.util.List;
+
 
 @Service
 public class MenuService {
 
     private final MenuMapper menuMapper;
-feat/select-by
+
+
+    @Autowired
+    public MenuService(MenuMapper menuMapper) {
+        this.menuMapper = menuMapper;
+    }
+
+    @Transactional
+    public void updateMenu(MenuDTO menu) {
+        menuMapper.updateMenu(menu);
+    }
+
 
     @Autowired
     public MenuService(MenuMapper menuMapper) {
@@ -39,6 +52,7 @@ feat/select-by
 
     public List<CategoryDTO> findAllCategory() {
 
+
         return menuMapper.findAllCategory();
     }
 
@@ -47,7 +61,7 @@ feat/select-by
     public void registMenu(MenuDTO newMenu) {
 
         menuMapper.registMenu(newMenu);
-main
+
     }
 
     @Transactional
@@ -65,4 +79,4 @@ feat/select-by
         menuMapper.updateMenu(menu);
     }
 }
-main
+
