@@ -55,7 +55,9 @@
         menu_code = #{code}
     </select>
 
+
     <insert id="registNewMenu" parameterType="com.ohgiraffers.udigo.crud.menu.model.dto.MenuDTO"
+
             useGeneratedKeys="true" keyProperty="code">
         INSERT INTO
         tbl_menu
@@ -74,7 +76,9 @@
         )
     </insert>
 
+
     <update id="updateMenu" parameterType="com.ohgiraffers.udigo.crud.menu.model.dto.MenuDTO">
+
         UPDATE tbl_menu
         SET
         menu_name = #{name},
