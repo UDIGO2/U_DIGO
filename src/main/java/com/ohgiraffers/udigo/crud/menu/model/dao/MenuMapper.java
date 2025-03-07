@@ -19,7 +19,7 @@ public interface MenuMapper {
 
     List<CategoryDTO> findAllCategory();
 
-    void registMenu(MenuDTO newMenu);
+    void registNewMenu(MenuDTO newMenu);
 
     void updateMenu(MenuDTO menu);
 
